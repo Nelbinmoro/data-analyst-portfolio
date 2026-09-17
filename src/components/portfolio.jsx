@@ -1,19 +1,24 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
-// ── Design Tokens (Ocean Gradient Theme) ─────────────────────────
+// ── Design Tokens (Deep Purple, Indigo & Midnight Dark Aesthetic) ────
 const colors = {
-  bgDeep: "#071822",
-  bgMid: "#0d2b3a",
-  bgCard: "rgba(13, 43, 58, 0.65)",
-  teal: "#0d7377",
-  tealBright: "#4fd1c5",
-  tealGlow: "rgba(79, 209, 197, 0.35)",
+  bgDeep: "#06050e", // Midnight black
+  bgMid: "#0d0d24",  // Deep midnight navy / indigo
+  bgCard: "rgba(18, 17, 42, 0.65)", // Indigo-purple translucent glass
+  bgCardHover: "rgba(28, 26, 62, 0.75)",
+  purple: "#7c3aed",
+  purpleBright: "#a855f7",
+  purpleGlow: "rgba(168, 85, 247, 0.35)",
+  indigo: "#6366f1",
+  indigoBright: "#818cf8",
+  indigoGlow: "rgba(99, 102, 241, 0.35)",
+  lavender: "#c084fc",
   cyan: "#38bdf8",
-  ink: "#e6f1f2",
-  inkDim: "#8fb4b9",
-  border: "rgba(79, 209, 197, 0.18)",
-  borderHover: "rgba(79, 209, 197, 0.5)",
+  ink: "#f5f4fd",
+  inkDim: "#a0a5c4",
+  border: "rgba(139, 92, 246, 0.2)",
+  borderHover: "rgba(168, 85, 247, 0.55)",
 };
 
 const fontDisplay = "'Space Grotesk', sans-serif";
@@ -33,11 +38,11 @@ const Icons = {
     >
       <path
         d="M12 2C6.48 2 6.5 4.5 6.5 4.5V7H12V8.5H4C4 8.5 2 8.35 2 12.5C2 16.65 3.75 16.5 3.75 16.5H5.5V14C5.5 14 5.35 11.5 8 11.5H13.5C13.5 11.5 15.5 11.65 15.5 9.5V4.5C15.5 4.5 15.65 2 12 2ZM9 4.5C9.55 4.5 10 4.95 10 5.5C10 6.05 9.55 6.5 9 6.5C8.45 6.5 8 6.05 8 5.5C8 4.95 8.45 4.5 9 4.5Z"
-        fill="#38bdf8"
+        fill="#818cf8"
       />
       <path
         d="M12 22C17.52 22 17.5 19.5 17.5 19.5V17H12V15.5H20C20 15.5 22 15.65 22 11.5C22 7.35 20.25 7.5 20.25 7.5H18.5V10C18.5 10 18.65 12.5 16 12.5H10.5C10.5 12.5 8.5 12.35 8.5 14.5V19.5C8.5 19.5 8.35 22 12 22ZM15 19.5C14.45 19.5 14 19.05 14 18.5C14 17.95 14.45 17.5 15 17.5C15.55 17.5 16 17.95 16 18.5C16 19.05 15.55 19.5 15 19.5Z"
-        fill="#f59e0b"
+        fill="#c084fc"
       />
     </motion.svg>
   ),
@@ -55,9 +60,9 @@ const Icons = {
       whileHover={{ scale: 1.2, rotate: -10 }}
       transition={{ type: "spring", stiffness: 300 }}
     >
-      <ellipse cx="12" cy="5" rx="9" ry="3" stroke="#4fd1c5" />
-      <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" stroke="#38bdf8" />
-      <path d="M3 12c0 1.66 4 3 9 3s9-1.34 9-3" stroke="#4fd1c5" />
+      <ellipse cx="12" cy="5" rx="9" ry="3" stroke="#a855f7" />
+      <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" stroke="#818cf8" />
+      <path d="M3 12c0 1.66 4 3 9 3s9-1.34 9-3" stroke="#a855f7" />
     </motion.svg>
   ),
 
@@ -87,11 +92,11 @@ const Icons = {
     >
       <path
         d="M12 2C12 2 6 8.5 6 14C6 17.5 8.5 20.5 12 22C15.5 20.5 18 17.5 18 14C18 8.5 12 2 12 2Z"
-        stroke="#4fd1c5"
+        stroke="#a855f7"
         strokeWidth="2"
-        fill="rgba(79, 209, 197, 0.15)"
+        fill="rgba(168, 85, 247, 0.15)"
       />
-      <path d="M12 2v20" stroke="#34d399" strokeWidth="1.5" strokeLinecap="round" />
+      <path d="M12 2v20" stroke="#818cf8" strokeWidth="1.5" strokeLinecap="round" />
     </motion.svg>
   ),
 
@@ -107,10 +112,10 @@ const Icons = {
       strokeLinejoin="round"
       whileHover={{ scale: 1.15 }}
     >
-      <path d="M12 20V10" stroke="#4fd1c5" />
-      <path d="M18 20V4" stroke="#38bdf8" />
-      <path d="M6 20v-4" stroke="#34d399" />
-      <path d="M3 20h18" stroke="#8fb4b9" />
+      <path d="M12 20V10" stroke="#a855f7" />
+      <path d="M18 20V4" stroke="#818cf8" />
+      <path d="M6 20v-4" stroke="#c084fc" />
+      <path d="M3 20h18" stroke="#6366f1" />
     </motion.svg>
   ),
 
@@ -120,7 +125,7 @@ const Icons = {
       height={size}
       viewBox="0 0 24 24"
       fill="none"
-      stroke="#4fd1c5"
+      stroke="#a855f7"
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -137,7 +142,7 @@ const Icons = {
       height={size}
       viewBox="0 0 24 24"
       fill="none"
-      stroke="#4fd1c5"
+      stroke="#a855f7"
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -154,7 +159,7 @@ const Icons = {
       height={size}
       viewBox="0 0 24 24"
       fill="none"
-      stroke="#4fd1c5"
+      stroke="#c084fc"
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -218,7 +223,7 @@ const Icons = {
   ),
 
   Check: () => (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4fd1c5" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#a855f7" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
       <polyline points="20 6 9 17 4 12" />
     </svg>
   ),
@@ -229,7 +234,7 @@ const Icons = {
       height={size}
       viewBox="0 0 24 24"
       fill="none"
-      stroke="#4fd1c5"
+      stroke="#a855f7"
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -245,7 +250,7 @@ const Icons = {
       height={size}
       viewBox="0 0 24 24"
       fill="none"
-      stroke="#38bdf8"
+      stroke="#818cf8"
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -262,7 +267,7 @@ const Icons = {
       height={size}
       viewBox="0 0 24 24"
       fill="none"
-      stroke="#4fd1c5"
+      stroke="#a855f7"
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -280,7 +285,7 @@ const Icons = {
       height={size}
       viewBox="0 0 24 24"
       fill="none"
-      stroke="#38bdf8"
+      stroke="#818cf8"
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -424,8 +429,6 @@ const CONTACT = {
   ],
 };
 
-
-
 // ── Reusable Section Wrapper with Bidirectional Slide-In Animation ─
 function Reveal({ children, delay = 0, style }) {
   return (
@@ -447,7 +450,7 @@ function SectionLabel({ children }) {
       style={{
         fontFamily: fontMono,
         fontSize: "12px",
-        color: colors.tealBright,
+        color: colors.purpleBright,
         letterSpacing: "0.12em",
         marginBottom: 24,
         textTransform: "uppercase"
@@ -457,8 +460,6 @@ function SectionLabel({ children }) {
     </div>
   );
 }
-
-
 
 // ── 1. Hero Section ───────────────────────────────────────────────
 function Hero() {
@@ -485,9 +486,9 @@ function Hero() {
             opacity: 1,
             x: 0,
             boxShadow: [
-              "0 0 18px -6px rgba(79, 209, 197, 0.25)",
-              "0 0 28px -2px rgba(79, 209, 197, 0.5)",
-              "0 0 18px -6px rgba(79, 209, 197, 0.25)",
+              "0 0 18px -6px rgba(168, 85, 247, 0.25)",
+              "0 0 28px -2px rgba(168, 85, 247, 0.5)",
+              "0 0 18px -6px rgba(168, 85, 247, 0.25)",
             ],
           }}
           transition={{
@@ -500,11 +501,11 @@ function Hero() {
             display: "inline-flex",
             alignItems: "center",
             gap: "8px",
-            border: `2px solid ${colors.tealBright}`,
+            border: `2px solid ${colors.purpleBright}`,
             borderRadius: "999px",
             padding: "8px 22px",
             marginBottom: "28px",
-            background: "rgba(79, 209, 197, 0.08)",
+            background: "rgba(168, 85, 247, 0.1)",
             cursor: "default",
           }}
         >
@@ -514,7 +515,7 @@ function Hero() {
               fontSize: "13px",
               fontWeight: 800,
               letterSpacing: "0.08em",
-              color: colors.tealBright,
+              color: colors.purpleBright,
               textTransform: "uppercase",
             }}
           >
@@ -561,7 +562,7 @@ function Hero() {
           <motion.span
             whileHover={{ x: 6, filter: "brightness(1.15)" }}
             transition={{ type: "spring", stiffness: 300, damping: 15 }}
-            style={{ color: colors.tealBright, fontWeight: 900, display: "inline-block", cursor: "default" }}
+            style={{ color: colors.purpleBright, fontWeight: 900, display: "inline-block", cursor: "default" }}
           >
             NELSON
           </motion.span>
@@ -587,8 +588,8 @@ function Hero() {
               margin: "0 0 12px",
             }}
           >
-            I turn <span style={{ color: colors.tealBright, fontWeight: 700 }}>data</span> into{" "}
-            <span style={{ color: colors.tealBright, fontWeight: 700 }}>decisions</span>.
+            I turn <span style={{ color: colors.purpleBright, fontWeight: 700 }}>data</span> into{" "}
+            <span style={{ color: colors.indigoBright, fontWeight: 700 }}>decisions</span>.
           </p>
           <p
             style={{
@@ -613,12 +614,12 @@ function Hero() {
         >
           <motion.a
             href="#work"
-            whileHover={{ scale: 1.04, boxShadow: `0 0 28px ${colors.tealGlow}` }}
+            whileHover={{ scale: 1.04, boxShadow: `0 0 28px ${colors.purpleGlow}` }}
             whileTap={{ scale: 0.97 }}
             style={{
               display: "inline-block",
-              background: `linear-gradient(135deg, ${colors.teal} 0%, ${colors.tealBright} 100%)`,
-              color: colors.bgDeep,
+              background: `linear-gradient(135deg, ${colors.indigo} 0%, ${colors.purpleBright} 100%)`,
+              color: "#ffffff",
               textDecoration: "none",
               borderRadius: "8px",
               padding: "13px 28px",
@@ -626,7 +627,7 @@ function Hero() {
               fontWeight: 700,
               fontSize: "14px",
               cursor: "pointer",
-              boxShadow: `0 4px 18px -4px ${colors.tealGlow}`,
+              boxShadow: `0 4px 20px -4px ${colors.purpleGlow}`,
               transition: "all 0.2s ease",
             }}
           >
@@ -635,11 +636,11 @@ function Hero() {
 
           <motion.a
             href="#contact"
-            whileHover={{ scale: 1.04, borderColor: colors.tealBright, color: colors.tealBright }}
+            whileHover={{ scale: 1.04, borderColor: colors.purpleBright, color: colors.purpleBright }}
             whileTap={{ scale: 0.97 }}
             style={{
               display: "inline-block",
-              background: "transparent",
+              background: "rgba(18, 17, 42, 0.4)",
               border: `1.5px solid ${colors.border}`,
               color: colors.ink,
               textDecoration: "none",
@@ -678,18 +679,21 @@ function About() {
             {ABOUT.facts.map((f) => (
               <motion.div
                 key={f.label}
-                whileHover={{ x: 6, backgroundColor: "rgba(13,43,58,0.55)" }}
+                whileHover={{ x: 6, backgroundColor: colors.bgCardHover }}
                 transition={{ type: "spring", stiffness: 350, damping: 20 }}
                 style={{
-                  borderLeft: `2px solid ${colors.teal}`,
+                  borderLeft: `2px solid ${colors.purpleBright}`,
                   paddingLeft: "14px",
-                  background: "rgba(13,43,58,0.3)",
+                  background: colors.bgCard,
                   padding: "12px 16px",
                   borderRadius: "0 8px 8px 0",
-                  transition: "border-color 0.2s ease",
+                  transition: "all 0.2s ease",
+                  border: `1px solid ${colors.border}`,
+                  borderLeftWidth: "3px",
+                  borderLeftColor: colors.purpleBright,
                 }}
               >
-                <div style={{ fontFamily: fontMono, fontSize: "11px", color: colors.tealBright, letterSpacing: "0.05em", textTransform: "uppercase" }}>
+                <div style={{ fontFamily: fontMono, fontSize: "11px", color: colors.purpleBright, letterSpacing: "0.05em", textTransform: "uppercase" }}>
                   {f.label}
                 </div>
                 <div style={{ color: colors.ink, fontSize: "14px", marginTop: 4, fontWeight: 500 }}>{f.value}</div>
@@ -728,30 +732,37 @@ function Skills() {
               transition={{ duration: 0.55, delay: idx * 0.1, ease: [0.22, 1, 0.36, 1] }}
               whileHover={{ y: -6 }}
               style={{
-                background: "linear-gradient(160deg, rgba(13,43,58,0.6), rgba(7,24,34,0.7))",
-                border: "1px solid rgba(79,209,197,0.18)",
+                background: "linear-gradient(160deg, rgba(20, 18, 48, 0.65), rgba(9, 8, 24, 0.8))",
+                border: `1px solid ${colors.border}`,
                 borderRadius: "12px",
                 padding: "24px",
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "space-between",
-                transition: "border-color 0.25s ease"
+                backdropFilter: "blur(10px)",
+                transition: "border-color 0.25s ease, box-shadow 0.25s ease"
               }}
-              onMouseEnter={(e) => (e.currentTarget.style.borderColor = colors.tealBright)}
-              onMouseLeave={(e) => (e.currentTarget.style.borderColor = "rgba(79,209,197,0.18)")}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.borderColor = colors.purpleBright;
+                e.currentTarget.style.boxShadow = `0 10px 28px -8px ${colors.purpleGlow}`;
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.borderColor = colors.border;
+                e.currentTarget.style.boxShadow = "none";
+              }}
             >
               <div>
                 <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "14px" }}>
                   <motion.div
                     whileHover={{ scale: 1.15, rotate: 6 }}
                     transition={{ type: "spring", stiffness: 350 }}
-                    style={{ padding: "8px", borderRadius: "8px", background: "rgba(79, 209, 197, 0.1)", display: "flex" }}
+                    style={{ padding: "8px", borderRadius: "8px", background: "rgba(168, 85, 247, 0.12)", display: "flex" }}
                   >
                     <SkillIcon size={22} />
                   </motion.div>
                   <motion.span
-                    whileHover={{ scale: 1.05, backgroundColor: "rgba(79, 209, 197, 0.15)" }}
-                    style={{ fontFamily: fontMono, fontSize: "11px", color: colors.tealBright, border: `1px solid ${colors.teal}`, padding: "2px 8px", borderRadius: "999px" }}
+                    whileHover={{ scale: 1.05, backgroundColor: "rgba(168, 85, 247, 0.18)" }}
+                    style={{ fontFamily: fontMono, fontSize: "11px", color: colors.purpleBright, border: `1px solid ${colors.border}`, padding: "2px 8px", borderRadius: "999px", background: "rgba(168, 85, 247, 0.08)" }}
                   >
                     {skill.category}
                   </motion.span>
@@ -770,18 +781,19 @@ function Skills() {
                   {skill.tools.map((t) => (
                     <motion.span
                       key={t}
-                      whileHover={{ scale: 1.08, y: -2, borderColor: colors.tealBright }}
+                      whileHover={{ scale: 1.08, y: -2, borderColor: colors.purpleBright, color: colors.purpleBright }}
                       transition={{ type: "spring", stiffness: 350 }}
                       style={{
                         fontFamily: fontMono,
                         fontSize: "11px",
-                        color: colors.tealBright,
-                        background: "rgba(7, 24, 34, 0.6)",
-                        border: "1px solid rgba(79, 209, 197, 0.18)",
+                        color: colors.indigoBright,
+                        background: "rgba(9, 8, 25, 0.7)",
+                        border: `1px solid ${colors.border}`,
                         borderRadius: "6px",
                         padding: "3px 8px",
                         display: "inline-block",
-                        cursor: "default"
+                        cursor: "default",
+                        transition: "all 0.2s"
                       }}
                     >
                       {t}
@@ -797,7 +809,7 @@ function Skills() {
   );
 }
 
-// ── 4. Work Section (Minimized & Sleek) ─────────────────────────────
+// ── 4. Work Section (Deep Indigo / Violet Aesthetic) ───────────────
 function Work() {
   const [expanded, setExpanded] = useState(false);
   const p = FEATURED_PROJECT;
@@ -813,18 +825,19 @@ function Work() {
         transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
         whileHover={{ y: -3 }}
         style={{
-          background: "linear-gradient(160deg, rgba(13,43,58,0.65), rgba(7,24,34,0.75))",
-          border: "1px solid rgba(79,209,197,0.18)",
+          background: "linear-gradient(160deg, rgba(20, 18, 48, 0.7), rgba(9, 8, 24, 0.85))",
+          border: `1px solid ${colors.border}`,
           borderRadius: "14px",
           padding: "clamp(20px, 3vw, 30px)",
+          backdropFilter: "blur(12px)",
           transition: "border-color 0.25s ease, box-shadow 0.25s ease",
         }}
         onMouseEnter={(e) => {
-          e.currentTarget.style.borderColor = colors.tealBright;
-          e.currentTarget.style.boxShadow = `0 10px 28px -8px ${colors.tealGlow}`;
+          e.currentTarget.style.borderColor = colors.purpleBright;
+          e.currentTarget.style.boxShadow = `0 10px 30px -8px ${colors.purpleGlow}`;
         }}
         onMouseLeave={(e) => {
-          e.currentTarget.style.borderColor = "rgba(79,209,197,0.18)";
+          e.currentTarget.style.borderColor = colors.border;
           e.currentTarget.style.boxShadow = "none";
         }}
       >
@@ -832,10 +845,10 @@ function Work() {
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: "12px", marginBottom: "14px" }}>
           <div>
             <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "8px" }}>
-              <span style={{ fontFamily: fontMono, fontSize: "11px", letterSpacing: "0.08em", color: colors.tealBright, textTransform: "uppercase", background: "rgba(79,209,197,0.1)", border: "1px solid rgba(79,209,197,0.25)", padding: "2px 8px", borderRadius: "999px", fontWeight: 600 }}>
+              <span style={{ fontFamily: fontMono, fontSize: "11px", letterSpacing: "0.08em", color: colors.purpleBright, textTransform: "uppercase", background: "rgba(168,85,247,0.12)", border: "1px solid rgba(168,85,247,0.3)", padding: "2px 8px", borderRadius: "999px", fontWeight: 600 }}>
                 {p.badge}
               </span>
-              <span style={{ fontFamily: fontMono, fontSize: "11px", color: colors.cyan }}>
+              <span style={{ fontFamily: fontMono, fontSize: "11px", color: colors.indigoBright }}>
                 {p.category}
               </span>
             </div>
@@ -849,9 +862,9 @@ function Work() {
               {["User Module", "Officer Dashboard", "Admin Oversight"].map((role) => (
                 <motion.span
                   key={role}
-                  whileHover={{ scale: 1.08, y: -2, borderColor: colors.tealBright }}
+                  whileHover={{ scale: 1.08, y: -2, borderColor: colors.purpleBright }}
                   transition={{ type: "spring", stiffness: 350 }}
-                  style={{ fontFamily: fontMono, fontSize: "11px", color: colors.tealBright, background: "rgba(7,24,34,0.6)", border: "1px solid rgba(79,209,197,0.18)", borderRadius: "6px", padding: "3px 8px", cursor: "default" }}
+                  style={{ fontFamily: fontMono, fontSize: "11px", color: colors.indigoBright, background: "rgba(9,8,25,0.7)", border: `1px solid ${colors.border}`, borderRadius: "6px", padding: "3px 8px", cursor: "default" }}
                 >
                   {role}
                 </motion.span>
@@ -862,21 +875,21 @@ function Work() {
               href={p.liveUrl}
               target="_blank"
               rel="noreferrer"
-              whileHover={{ scale: 1.05, boxShadow: `0 0 20px ${colors.tealGlow}` }}
+              whileHover={{ scale: 1.05, boxShadow: `0 0 22px ${colors.purpleGlow}` }}
               whileTap={{ scale: 0.96 }}
               style={{
                 display: "inline-flex",
                 alignItems: "center",
                 gap: "6px",
-                background: `linear-gradient(135deg, ${colors.teal} 0%, ${colors.tealBright} 100%)`,
-                color: colors.bgDeep,
+                background: `linear-gradient(135deg, ${colors.indigo} 0%, ${colors.purpleBright} 100%)`,
+                color: "#ffffff",
                 fontFamily: fontDisplay,
                 fontWeight: 700,
                 fontSize: "12.5px",
                 padding: "6px 14px",
                 borderRadius: "7px",
                 textDecoration: "none",
-                boxShadow: `0 2px 10px -2px ${colors.tealGlow}`,
+                boxShadow: `0 2px 12px -2px ${colors.purpleGlow}`,
                 transition: "all 0.2s ease",
               }}
             >
@@ -892,10 +905,10 @@ function Work() {
         </p>
 
         {/* Highlights - Compact List */}
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "8px 18px", marginBottom: "18px", background: "rgba(7,24,34,0.4)", border: "1px solid rgba(79,209,197,0.1)", borderRadius: "10px", padding: "14px 16px" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "8px 18px", marginBottom: "18px", background: "rgba(9,8,25,0.55)", border: `1px solid ${colors.border}`, borderRadius: "10px", padding: "14px 16px" }}>
           {(expanded ? p.highlights : p.highlights.slice(0, 4)).map((h, i) => (
             <div key={i} style={{ display: "flex", alignItems: "flex-start", gap: "8px" }}>
-              <span style={{ color: colors.tealBright, fontSize: "12px", marginTop: "2px", userSelect: "none" }}>▹</span>
+              <span style={{ color: colors.purpleBright, fontSize: "12px", marginTop: "2px", userSelect: "none" }}>▹</span>
               <span style={{ color: colors.ink, fontSize: "13px", lineHeight: 1.5 }}>
                 {h}
               </span>
@@ -904,23 +917,24 @@ function Work() {
         </div>
 
         {/* Footer: Tech Stack & Expand Toggle */}
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "12px", borderTop: "1px solid rgba(79,209,197,0.12)", paddingTop: "14px" }}>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "12px", borderTop: `1px solid ${colors.border}`, paddingTop: "14px" }}>
           <div style={{ display: "flex", flexWrap: "wrap", gap: "6px" }}>
             {p.technologies.map((t) => (
               <motion.span
                 key={t}
-                whileHover={{ scale: 1.08, y: -2, borderColor: colors.tealBright }}
+                whileHover={{ scale: 1.08, y: -2, borderColor: colors.purpleBright, color: colors.purpleBright }}
                 transition={{ type: "spring", stiffness: 350 }}
                 style={{
                   fontFamily: fontMono,
                   fontSize: "11px",
-                  color: colors.tealBright,
-                  background: "rgba(7, 24, 34, 0.6)",
-                  border: "1px solid rgba(79, 209, 197, 0.18)",
+                  color: colors.indigoBright,
+                  background: "rgba(9, 8, 25, 0.7)",
+                  border: `1px solid ${colors.border}`,
                   borderRadius: "6px",
                   padding: "3px 8px",
                   display: "inline-block",
                   cursor: "default",
+                  transition: "all 0.2s"
                 }}
               >
                 {t}
@@ -934,7 +948,7 @@ function Work() {
               style={{
                 background: "transparent",
                 border: "none",
-                color: colors.tealBright,
+                color: colors.purpleBright,
                 fontFamily: fontMono,
                 fontSize: "12px",
                 cursor: "pointer",
@@ -980,20 +994,27 @@ function Background() {
             transition={{ duration: 0.55, delay: idx * 0.1, ease: [0.22, 1, 0.36, 1] }}
             whileHover={{ x: 6 }}
             style={{
-              background: "linear-gradient(160deg, rgba(13,43,58,0.55), rgba(7,24,34,0.7))",
-              border: "1px solid rgba(79,209,197,0.18)",
+              background: "linear-gradient(160deg, rgba(20, 18, 48, 0.6), rgba(9, 8, 24, 0.8))",
+              border: `1px solid ${colors.border}`,
               borderRadius: "12px",
               padding: "22px 28px",
-              borderLeft: `4px solid ${colors.tealBright}`,
+              borderLeft: `4px solid ${colors.purpleBright}`,
               display: "flex",
               justifyContent: "space-between",
               alignItems: "center",
               flexWrap: "wrap",
               gap: "16px",
-              transition: "border-color 0.25s ease",
+              backdropFilter: "blur(10px)",
+              transition: "border-color 0.25s ease, box-shadow 0.25s ease",
             }}
-            onMouseEnter={(e) => (e.currentTarget.style.borderColor = colors.tealBright)}
-            onMouseLeave={(e) => (e.currentTarget.style.borderColor = "rgba(79,209,197,0.18)")}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.borderColor = colors.purpleBright;
+              e.currentTarget.style.boxShadow = `0 8px 24px -6px ${colors.purpleGlow}`;
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.borderColor = colors.border;
+              e.currentTarget.style.boxShadow = "none";
+            }}
           >
             <div>
               <h3 style={{ fontFamily: fontDisplay, fontSize: "19px", fontWeight: 700, color: colors.ink, margin: "0 0 6px" }}>
@@ -1005,7 +1026,7 @@ function Background() {
             </div>
 
             <div style={{ textAlign: "right" }}>
-              <div style={{ fontFamily: fontMono, fontSize: "14px", fontWeight: 600, color: colors.tealBright }}>
+              <div style={{ fontFamily: fontMono, fontSize: "14px", fontWeight: 600, color: colors.purpleBright }}>
                 {item.period}
               </div>
               <div style={{ fontFamily: fontMono, fontSize: "13px", color: colors.inkDim, marginTop: "4px" }}>
@@ -1035,15 +1056,15 @@ function Contact() {
       <Reveal>
         <div
           style={{
-            background: "linear-gradient(160deg, rgba(13,43,58,0.65), rgba(7,24,34,0.8))",
+            background: "linear-gradient(160deg, rgba(20, 18, 48, 0.75), rgba(9, 8, 24, 0.9))",
             border: `1px solid ${colors.border}`,
             borderRadius: "18px",
             padding: "clamp(26px, 4vw, 44px)",
-            boxShadow: "0 20px 40px -15px rgba(0,0,0,0.5)",
-            backdropFilter: "blur(12px)",
+            boxShadow: "0 20px 40px -15px rgba(0,0,0,0.6)",
+            backdropFilter: "blur(14px)",
             transition: "border-color 0.3s ease",
           }}
-          onMouseEnter={(e) => (e.currentTarget.style.borderColor = colors.tealBright)}
+          onMouseEnter={(e) => (e.currentTarget.style.borderColor = colors.purpleBright)}
           onMouseLeave={(e) => (e.currentTarget.style.borderColor = colors.border)}
         >
           {/* Pill Badge */}
@@ -1052,12 +1073,12 @@ function Contact() {
               display: "inline-flex",
               alignItems: "center",
               gap: "8px",
-              border: `2px solid ${colors.tealBright}`,
+              border: `2px solid ${colors.purpleBright}`,
               borderRadius: "999px",
               padding: "6px 18px",
               marginBottom: "24px",
-              background: "rgba(79, 209, 197, 0.08)",
-              boxShadow: `0 0 20px -5px ${colors.tealGlow}`,
+              background: "rgba(168, 85, 247, 0.1)",
+              boxShadow: `0 0 20px -5px ${colors.purpleGlow}`,
             }}
           >
             <span
@@ -1066,7 +1087,7 @@ function Contact() {
                 fontSize: "12px",
                 fontWeight: 800,
                 letterSpacing: "0.08em",
-                color: colors.tealBright,
+                color: colors.purpleBright,
                 textTransform: "uppercase",
               }}
             >
@@ -1100,7 +1121,7 @@ function Contact() {
             }}
           >
             HAVE A PROJECT OR DATASET IN MIND?{" "}
-            <span style={{ color: colors.tealBright }}>LET'S ANALYZE IT.</span>
+            <span style={{ color: colors.purpleBright }}>LET'S ANALYZE IT.</span>
           </h2>
 
           {/* Subtitle */}
@@ -1130,11 +1151,11 @@ function Contact() {
               href={CONTACT.whatsapp}
               target="_blank"
               rel="noreferrer"
-              whileHover={{ y: -5, borderColor: colors.tealBright, backgroundColor: "rgba(13,43,58,0.6)", boxShadow: `0 10px 24px -6px ${colors.tealGlow}` }}
+              whileHover={{ y: -5, borderColor: colors.purpleBright, backgroundColor: colors.bgCardHover, boxShadow: `0 10px 24px -6px ${colors.purpleGlow}` }}
               transition={{ type: "spring", stiffness: 350 }}
               style={{
-                background: "rgba(7,24,34,0.55)",
-                border: "1px solid rgba(79,209,197,0.18)",
+                background: "rgba(9,8,25,0.65)",
+                border: `1px solid ${colors.border}`,
                 borderRadius: "12px",
                 padding: "18px",
                 textDecoration: "none",
@@ -1148,7 +1169,7 @@ function Contact() {
               <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
                 <motion.div
                   whileHover={{ scale: 1.15, rotate: 6 }}
-                  style={{ padding: "10px", borderRadius: "10px", background: "rgba(79,209,197,0.12)", color: colors.tealBright, display: "flex" }}
+                  style={{ padding: "10px", borderRadius: "10px", background: "rgba(168,85,247,0.12)", color: colors.purpleBright, display: "flex" }}
                 >
                   <Icons.WhatsApp />
                 </motion.div>
@@ -1161,7 +1182,7 @@ function Contact() {
                   </div>
                 </div>
               </div>
-              <motion.span whileHover={{ x: 4 }} style={{ color: colors.tealBright, fontFamily: fontMono, fontSize: "14px" }}>
+              <motion.span whileHover={{ x: 4 }} style={{ color: colors.purpleBright, fontFamily: fontMono, fontSize: "14px" }}>
                 →
               </motion.span>
             </motion.a>
@@ -1171,11 +1192,11 @@ function Contact() {
               href={CONTACT.linkedin}
               target="_blank"
               rel="noreferrer"
-              whileHover={{ y: -5, borderColor: colors.tealBright, backgroundColor: "rgba(13,43,58,0.6)", boxShadow: `0 10px 24px -6px ${colors.tealGlow}` }}
+              whileHover={{ y: -5, borderColor: colors.purpleBright, backgroundColor: colors.bgCardHover, boxShadow: `0 10px 24px -6px ${colors.purpleGlow}` }}
               transition={{ type: "spring", stiffness: 350 }}
               style={{
-                background: "rgba(7,24,34,0.55)",
-                border: "1px solid rgba(79,209,197,0.18)",
+                background: "rgba(9,8,25,0.65)",
+                border: `1px solid ${colors.border}`,
                 borderRadius: "12px",
                 padding: "18px",
                 textDecoration: "none",
@@ -1189,7 +1210,7 @@ function Contact() {
               <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
                 <motion.div
                   whileHover={{ scale: 1.15, rotate: -6 }}
-                  style={{ padding: "10px", borderRadius: "10px", background: "rgba(79,209,197,0.12)", color: colors.tealBright, display: "flex" }}
+                  style={{ padding: "10px", borderRadius: "10px", background: "rgba(168,85,247,0.12)", color: colors.purpleBright, display: "flex" }}
                 >
                   <Icons.Linkedin />
                 </motion.div>
@@ -1202,7 +1223,7 @@ function Contact() {
                   </div>
                 </div>
               </div>
-              <motion.span whileHover={{ x: 4 }} style={{ color: colors.tealBright, fontFamily: fontMono, fontSize: "14px" }}>
+              <motion.span whileHover={{ x: 4 }} style={{ color: colors.purpleBright, fontFamily: fontMono, fontSize: "14px" }}>
                 →
               </motion.span>
             </motion.a>
@@ -1210,11 +1231,11 @@ function Contact() {
             {/* Email Card */}
             <motion.a
               href={`mailto:${CONTACT.email}`}
-              whileHover={{ y: -5, borderColor: colors.tealBright, backgroundColor: "rgba(13,43,58,0.6)", boxShadow: `0 10px 24px -6px ${colors.tealGlow}` }}
+              whileHover={{ y: -5, borderColor: colors.purpleBright, backgroundColor: colors.bgCardHover, boxShadow: `0 10px 24px -6px ${colors.purpleGlow}` }}
               transition={{ type: "spring", stiffness: 350 }}
               style={{
-                background: "rgba(7,24,34,0.55)",
-                border: "1px solid rgba(79,209,197,0.18)",
+                background: "rgba(9,8,25,0.65)",
+                border: `1px solid ${colors.border}`,
                 borderRadius: "12px",
                 padding: "18px",
                 textDecoration: "none",
@@ -1228,7 +1249,7 @@ function Contact() {
               <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
                 <motion.div
                   whileHover={{ scale: 1.15, y: -2 }}
-                  style={{ padding: "10px", borderRadius: "10px", background: "rgba(79,209,197,0.12)", color: colors.tealBright, display: "flex" }}
+                  style={{ padding: "10px", borderRadius: "10px", background: "rgba(168,85,247,0.12)", color: colors.purpleBright, display: "flex" }}
                 >
                   <Icons.Mail />
                 </motion.div>
@@ -1241,25 +1262,25 @@ function Contact() {
                   </div>
                 </div>
               </div>
-              <motion.span whileHover={{ x: 4 }} style={{ color: colors.tealBright, fontFamily: fontMono, fontSize: "14px" }}>
+              <motion.span whileHover={{ x: 4 }} style={{ color: colors.purpleBright, fontFamily: fontMono, fontSize: "14px" }}>
                 →
               </motion.span>
             </motion.a>
           </div>
 
           {/* Copy Email Button */}
-          <div style={{ display: "flex", alignItems: "center", gap: "12px", borderTop: "1px solid rgba(79,209,197,0.12)", paddingTop: "18px" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: "12px", borderTop: `1px solid ${colors.border}`, paddingTop: "18px" }}>
             <span style={{ fontFamily: fontMono, fontSize: "13px", color: colors.inkDim }}>
               Prefer email?
             </span>
             <motion.button
               onClick={handleCopyEmail}
-              whileHover={{ scale: 1.04, backgroundColor: colors.tealBright, color: colors.bgDeep }}
+              whileHover={{ scale: 1.04, backgroundColor: colors.purpleBright, color: "#ffffff" }}
               whileTap={{ scale: 0.96 }}
               style={{
-                background: "rgba(79,209,197,0.1)",
-                border: "1px solid rgba(79,209,197,0.25)",
-                color: colors.tealBright,
+                background: "rgba(168,85,247,0.12)",
+                border: `1px solid rgba(168,85,247,0.3)`,
+                color: colors.purpleBright,
                 borderRadius: "8px",
                 padding: "8px 16px",
                 fontFamily: fontMono,
@@ -1314,15 +1335,15 @@ function BackgroundFX() {
 
   // Pre-calculated floating background stardust coordinates
   const particles = [
-    { top: "12%", left: "15%", size: 3, delay: 0 },
-    { top: "25%", left: "82%", size: 4, delay: 1.5 },
-    { top: "38%", left: "28%", size: 2.5, delay: 3 },
-    { top: "50%", left: "92%", size: 3.5, delay: 0.8 },
-    { top: "65%", left: "12%", size: 3, delay: 2.2 },
-    { top: "78%", left: "76%", size: 4, delay: 4 },
-    { top: "88%", left: "48%", size: 2.5, delay: 1.2 },
-    { top: "18%", left: "55%", size: 3, delay: 2.8 },
-    { top: "92%", left: "18%", size: 3.5, delay: 3.4 },
+    { top: "12%", left: "15%", size: 3, delay: 0, color: colors.purpleBright },
+    { top: "25%", left: "82%", size: 4, delay: 1.5, color: colors.indigoBright },
+    { top: "38%", left: "28%", size: 2.5, delay: 3, color: colors.lavender },
+    { top: "50%", left: "92%", size: 3.5, delay: 0.8, color: colors.purpleBright },
+    { top: "65%", left: "12%", size: 3, delay: 2.2, color: colors.indigoBright },
+    { top: "78%", left: "76%", size: 4, delay: 4, color: colors.lavender },
+    { top: "88%", left: "48%", size: 2.5, delay: 1.2, color: colors.purpleBright },
+    { top: "18%", left: "55%", size: 3, delay: 2.8, color: colors.indigoBright },
+    { top: "92%", left: "18%", size: 3.5, delay: 3.4, color: colors.lavender },
   ];
 
   return (
@@ -1349,8 +1370,8 @@ function BackgroundFX() {
             width: `${p.size}px`,
             height: `${p.size}px`,
             borderRadius: "50%",
-            background: colors.tealBright,
-            boxShadow: `0 0 10px ${colors.tealBright}`,
+            background: p.color,
+            boxShadow: `0 0 12px ${p.color}`,
           }}
         />
       ))}
@@ -1370,7 +1391,7 @@ function BackgroundFX() {
           width: "700px",
           height: "700px",
           borderRadius: "50%",
-          background: `radial-gradient(circle, rgba(79, 209, 197, 0.14) 0%, rgba(56, 189, 248, 0.06) 35%, rgba(13, 115, 119, 0.02) 65%, transparent 75%)`,
+          background: `radial-gradient(circle, rgba(168, 85, 247, 0.14) 0%, rgba(99, 102, 241, 0.07) 35%, rgba(13, 13, 36, 0.02) 65%, transparent 75%)`,
         }}
       />
 
@@ -1389,7 +1410,7 @@ function BackgroundFX() {
           width: "450px",
           height: "450px",
           borderRadius: "50%",
-          background: `radial-gradient(circle, rgba(56, 189, 248, 0.12) 0%, rgba(79, 209, 197, 0.05) 45%, transparent 70%)`,
+          background: `radial-gradient(circle, rgba(99, 102, 241, 0.13) 0%, rgba(168, 85, 247, 0.05) 45%, transparent 70%)`,
           filter: "blur(20px)",
         }}
       />
@@ -1409,7 +1430,7 @@ function BackgroundFX() {
           width: "120px",
           height: "120px",
           borderRadius: "50%",
-          background: `radial-gradient(circle, rgba(79, 209, 197, 0.22) 0%, rgba(56, 189, 248, 0.1) 40%, transparent 75%)`,
+          background: `radial-gradient(circle, rgba(192, 132, 252, 0.24) 0%, rgba(99, 102, 241, 0.1) 40%, transparent 75%)`,
           filter: "blur(6px)",
         }}
       />
@@ -1432,8 +1453,8 @@ function BackgroundFX() {
             top: 0,
             left: 0,
             borderRadius: "50%",
-            border: `1.5px solid ${colors.tealBright}`,
-            boxShadow: `0 0 25px ${colors.tealGlow}, inset 0 0 15px ${colors.tealGlow}`,
+            border: `1.5px solid ${colors.purpleBright}`,
+            boxShadow: `0 0 25px ${colors.purpleGlow}, inset 0 0 15px ${colors.purpleGlow}`,
           }}
         />
       ))}
@@ -1469,7 +1490,7 @@ export default function Portfolio() {
     <div
       style={{
         minHeight: "100vh",
-        background: `radial-gradient(ellipse at top, ${colors.bgMid} 0%, ${colors.bgDeep} 65%)`,
+        background: `radial-gradient(ellipse at top, #141238 0%, #0c0b22 40%, #06050e 85%)`,
         fontFamily: fontBody,
         color: colors.ink,
         position: "relative",
@@ -1477,9 +1498,9 @@ export default function Portfolio() {
       }}
     >
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap');
         html { scroll-behavior: smooth; }
-        ::selection { background: ${colors.tealBright}; color: ${colors.bgDeep}; }
+        ::selection { background: ${colors.purpleBright}; color: #ffffff; }
       `}</style>
 
       {/* Dynamic Cursor Light, Cyber Grid & Ambient Particles */}
@@ -1502,15 +1523,15 @@ export default function Portfolio() {
           color: colors.inkDim,
           backdropFilter: "blur(16px)",
           WebkitBackdropFilter: "blur(16px)",
-          background: "rgba(7, 24, 34, 0.85)",
-          borderBottom: "1px solid rgba(79, 209, 197, 0.15)",
-          boxShadow: "0 4px 20px -4px rgba(0, 0, 0, 0.4)",
+          background: "rgba(8, 7, 18, 0.88)",
+          borderBottom: `1px solid ${colors.border}`,
+          boxShadow: "0 4px 24px -4px rgba(0, 0, 0, 0.6)",
           zIndex: 100,
           boxSizing: "border-box",
         }}
       >
         <a href="#home" style={{ color: colors.ink, textDecoration: "none", fontWeight: 700, fontFamily: fontDisplay, fontSize: "15px" }}>
-          nelbin-nelson<span style={{ color: colors.tealBright }}>.dev</span>
+          nelbin-nelson<span style={{ color: colors.purpleBright }}>.dev</span>
         </a>
 
         <div style={{ display: "flex", gap: "24px", alignItems: "center" }}>
@@ -1519,14 +1540,14 @@ export default function Portfolio() {
               key={item}
               href={`#${item}`}
               style={{
-                color: activeNav === item ? colors.tealBright : colors.inkDim,
+                color: activeNav === item ? colors.purpleBright : colors.inkDim,
                 textDecoration: "none",
                 textTransform: "capitalize",
                 fontWeight: activeNav === item ? 600 : 400,
                 transition: "color 0.2s"
               }}
-              onMouseEnter={(e) => (e.currentTarget.style.color = colors.tealBright)}
-              onMouseLeave={(e) => (e.currentTarget.style.color = activeNav === item ? colors.tealBright : colors.inkDim)}
+              onMouseEnter={(e) => (e.currentTarget.style.color = colors.purpleBright)}
+              onMouseLeave={(e) => (e.currentTarget.style.color = activeNav === item ? colors.purpleBright : colors.inkDim)}
             >
               {item}
             </a>
@@ -1545,7 +1566,7 @@ export default function Portfolio() {
       </main>
 
       {/* Footer */}
-      <footer style={{ textAlign: "center", padding: "30px 20px", color: colors.inkDim, fontFamily: fontMono, fontSize: "12px", borderTop: "1px solid rgba(79,209,197,0.12)", position: "relative", zIndex: 10 }}>
+      <footer style={{ textAlign: "center", padding: "30px 20px", color: colors.inkDim, fontFamily: fontMono, fontSize: "12px", borderTop: `1px solid ${colors.border}`, position: "relative", zIndex: 10 }}>
         built by Nelbin Nelson · Data Analyst
       </footer>
     </div>

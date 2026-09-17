@@ -1,15 +1,21 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
 :root {
-  --bg: #0f172a;
-  --surface: #1e293b;
-  --surface-hover: #334155;
-  --border: #334155;
-  --text: #f8fafc;
-  --text-muted: #94a3b8;
-  --primary: #38bdf8;
-  --primary-dark: #0284c7;
-  --accent: #10b981;
+  --bg: #06050e;
+  --surface: #0e0d22;
+  --surface-hover: #19173a;
+  --border: rgba(139, 92, 246, 0.2);
+  --border-hover: rgba(168, 85, 247, 0.5);
+  --text: #f5f4fd;
+  --text-muted: #a0a5c4;
+  --primary: #a855f7;
+  --primary-dark: #7c3aed;
+  --indigo: #6366f1;
+  --indigo-bright: #818cf8;
+  --accent: #a855f7;
+  --accent-bg: rgba(168, 85, 247, 0.12);
+  --accent-border: rgba(168, 85, 247, 0.3);
+  --shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
 }
 
 * {
