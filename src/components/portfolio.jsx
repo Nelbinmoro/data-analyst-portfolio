@@ -589,7 +589,7 @@ function Hero() {
             }}
           >
             I turn <span style={{ color: colors.purpleBright, fontWeight: 700 }}>data</span> into{" "}
-            <span style={{ color: colors.indigoBright, fontWeight: 700 }}>decisions</span>.
+            <span style={{ color: colors.purpleBright, fontWeight: 700 }}>decisions</span>.
           </p>
           <p
             style={{
